@@ -1,0 +1,90 @@
+/* Put your CSS here */
+html, body 
+{
+    margin: 20px;
+}
+
+/* Navigation */
+#navigation 
+{
+list-style: none;
+list-style-type: none;
+font-family: "Century Gothic", Verdana, Arial, Sans-Serif;
+margin: 0;
+padding: 0;
+font-size: 1.2em;
+}
+#navigation ul
+{
+margin: 0;
+padding: 0;
+list-style-type: none;
+}
+/* CSS for each Parent Item */
+#navigation li
+{
+clear: both;
+height: 2em;
+display: inline;
+list-style-type: none;
+padding-right: 20px;
+}
+#navigation li a
+{
+float: left;
+display: block;
+padding: 4px;
+text-decoration: none;
+text-transform: uppercase;
+margin-bottom: 5px;
+margin-right: 10px;
+color: #666;
+}
+/* Change background color and font color of parent items when mouse hover */
+#navigation li:hover a,
+#navigation li a:hover
+{
+background: #999;
+color: #fff;
+}
+
+/* Menus */
+#area_main
+{
+position: relative;
+padding: 20px;
+}
+
+#area_bowtie
+{
+text-align:left;
+width: 70%;
+}
+
+#area_options
+{
+text-align:left;
+float: right;
+width: 20%;
+}
+
+#area_fabric
+{
+text-align:left;
+float: bottom;
+width: 70%;
+}
+
+
+.center
+{
+text-align:center;
+}
+
+.show_border
+{
+border: 5px;
+border-style:solid;
+border-color: black;
+padding: 20px;
+}
