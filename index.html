@@ -35,38 +35,75 @@
   <script type="text/x-handlebars" data-template-name="design">
   <section id="area_main">
     <section id="area_options" class="show_border">
-    <h2 class="center">Options</h2>
-    <ul>
-      <li>Neck Size <input></input></li>
-      <li>Style</li>
-      <ul>
-        <li>Classic</li>
-        <li>Batwing</li>
-        <li>Diamond Point</li>
-      </ul>
-      <li>Bow Size</li>
-      <ul>
-        <li>Jumbo</li>
-        <li>Normal</li>
-        <li>Slim</li>
-      </ul>
-    </ul>
+    {{outlet option}}
     </section>
 
     <section id="area_bowtie" class="show_border">
-    <h2 class="center">Bow Tie Design Area</h2>
+    {{outlet bowtie}}
     </section>
 
     <section id="area_fabric" class="show_border">
-    <h2 class="center">Fabric</h2>
-      <ul>
-      {{#each item in model}}
-        <li>{{item.name}}</li>
-      {{/each}}
-      </ul>
+    {{outlet fabric}}
     </section>
   </section>
   </script>
+
+
+  <script type="text/x-handlebars" data-template-name="option">
+    <h2 class="center">Options</h2>
+    {{#each item in model}}
+    <ul>
+      <li>
+        <label>Neck Size
+        {{view Ember.TextField valueBinding="item.necksize"}}
+        </label>
+      </li>
+
+    <li>
+      <label>{{App.BowSize.type}}
+        {{view Ember.Select
+       contentBinding="App.BowTie.sizeOption"
+       valueBinding="item.size"
+        }}
+      </label>
+    </li>
+
+    <li>
+      <label>{{App.BowStyle.type}}
+        {{view Ember.Select
+       contentBinding="App.BowTie.styleOption"
+       valueBinding="item.style"
+        }}
+      </label>
+    </li>
+
+    </ul>
+    {{/each}}
+      
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="bowtie">
+    <h2 class="center">Bow Tie Design Area!</h2>
+    <ul>
+    {{#each item in model}}
+      <li>Neckize: {{item.necksize}}</li>
+      <li>Size: {{item.size}}</li>
+      <li>Style: {{item.style}}</li>
+    {{/each}}
+    {{ns}}
+    </ul>
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="fabric">
+    <h2 class="center">Fabric</h2>
+    <p>Number of Fabrics: {{fabricCount}}</p>
+    <ul>
+    {{#each controller}}
+      <li>{{name}}</li>
+    {{/each}}
+    </ul>
+  </script>
+
 
   <script type="text/x-handlebars" data-template-name="preview">
     <ul>

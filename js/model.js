@@ -3,49 +3,81 @@ App.Store = DS.Store.extend({
   adapter: 'DS.FixtureAdapter' //Stort-term persistance.
 });
 
-App.Fabric = DS.Model.extend({
-  id: DS.attr('integer'),
+App.BowTie = DS.Model.extend({
   name: DS.attr('string'),
+  user: DS.attr('string'),
+  necksize: DS.attr('number'),
+  style: DS.attr('string'),
+  size: DS.attr('string'),
+//  activeFabric: DS.belongsTo('App.Fabric'),
+  //activeOption: DS.belongsTo('App.Options'),
+});
+
+App.Fabric = DS.Model.extend({
+  name: DS.attr('string'),
+  img: DS.attr('string'),
+  //swatchbook: DS.hasMany('App.Swatchbook'),
+});
+
+App.Options = DS.Model.extend({
+  name: DS.attr('string'),
+  type: DS.attr('string'),
   isSelected: DS.attr('boolean')
 });
+
+
+
+/* Options for selector */
+App.BowTie.styleOption = ["Batwing", "Classic", "Diamond Point"];
+App.BowTie.sizeOption = ["Jumbo", "Standard", "Slim"];
+
+App.BowTie.FIXTURES = [
+ {
+   id: 1,
+   name: 'Inviticus',
+   user: 'Ryan',
+   necksize: 15.5,
+   style: 'Classic',
+   size: 'Standard',
+  // activeFabric: '',
+ },
+];
+
+
+
+
 
 // Fixtures used to store data until long-term persistance (REST calls to Django) are implemented
 App.Fabric.FIXTURES = [
  {
    id: 1,
    name: 'Red',
-   isSelected: false,
+   img: '',
  },
  {
    id: 2,
    name: 'Green',
-   isSelected: false,
+   img: '',
  },
  {
    id: 3,
    name: 'Yellow',
-   isSelected: false,
+   img: '',
  },
  {
    id: 4,
    name: 'Purple',
-   isSelected: false,
+   img: '',
  },
  {
    id: 5,
    name: 'Orange',
-   isSelected: false,
+   img: '',
  },
 ];
 
-App.BowOption = DS.Model.extend({
-  name: DS.attr('string'),
-  type: DS.attr('string'),
-  isSelected: DS.attr('boolean')
-});
-
 // Fixtures used to store data until long-term persistance (REST calls to Django) are implemented
-App.BowOption.FIXTURES = [
+App.Options.FIXTURES = [
  {
    name: 'Jumbo',
    type: 'size',
