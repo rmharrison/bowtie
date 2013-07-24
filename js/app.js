@@ -6,27 +6,36 @@ window.App = Ember.Application.create({
 //});
 
 App.DesignBowTieController = Ember.ObjectController.extend({
-
-
 });
 
 App.DesignFabricController = Ember.ArrayController.extend({
-  me: 'Ryan',
+  activeFabricIDBinding: 'App.BowTie.fabricID',
   fabricCount: function() {
     var fabrics = this.filter(function(fabric) {
       return fabric.get('name') != '';
     });
     return fabrics.get('length');
-  }.property('@each.fabricCount')
+  }.property('@each.fabricCount'),
 });
 
 App.DesignOptionController = Ember.Controller.extend({
 });
 
 
+//App.PreviewController = Ember.ObjectController.extend({
 App.PreviewController = Ember.Controller.extend({
-  title: 'Hello World',
-  appName: 'My First Example',
+  appName: 'Preview area',
 });
 
+App.BuyController = Ember.ObjectController.extend({
+  appName: 'Buy area',
+  submit: function() {
+    alert("Bought!");
+  }
+});
 
+App.Contact = Ember.Object.create({
+  firstName: 'Jane',
+  lastName: 'Doe',
+  email: 'jane.doe@gmail.com',
+});

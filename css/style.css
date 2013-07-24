@@ -75,7 +75,6 @@ float: bottom;
 width: 70%;
 }
 
-
 .center
 {
 text-align:center;
@@ -88,3 +87,28 @@ border-style:solid;
 border-color: black;
 padding: 20px;
 }
+
+.fabric-panel section
+{
+clear: both;
+height: 2em;
+display: inline;
+list-style-type: none;
+padding: 20px;
+}
+
+#fabric-panel-item {
+}
+
+#fabric-panel-item:hover {
+background: #999;
+color: #fff;
+} 
+
+#fabric-panel-item:active {
+font-weight: bold;
+} 
+
+.is-active-fabric {
+font-weight: bold;
+} 

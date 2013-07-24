@@ -20,7 +20,7 @@ App.IndexRoute = Ember.Route.extend({
 });
 
 App.DesignRoute = Ember.Route.extend({
-  setupController: function() {
+  setupController: function(controller) {
     //For setting a particular bowtie as a model
     //controller.set('model', bowtie);
     this.controllerFor('DesignFabric').set('content', App.Fabric.find());
@@ -66,7 +66,13 @@ App.DesignFabricRoute = Ember.Route.extend({
 
 App.PreviewRoute = Ember.Route.extend({
   model: function() {
-    return ['preview1', 'preview2'];
+    return App.BowTie.find();
+  },
+});
+
+App.BuyRoute = Ember.Route.extend({
+  model: function() {
+    return App.Contact;
   },
 });
 

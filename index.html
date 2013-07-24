@@ -84,41 +84,57 @@
 
   <script type="text/x-handlebars" data-template-name="bowtie">
     <h2 class="center">Bow Tie Design Area!</h2>
-    <ul>
-    {{#each item in model}}
-      <li>Neckize: {{item.necksize}}</li>
-      <li>Size: {{item.size}}</li>
-      <li>Style: {{item.style}}</li>
-    {{/each}}
-    {{ns}}
-    </ul>
   </script>
 
   <script type="text/x-handlebars" data-template-name="fabric">
     <h2 class="center">Fabric</h2>
+    <p>Fabric ID: {{activeFabricID}}</p>
     <p>Number of Fabrics: {{fabricCount}}</p>
-    <ul>
-    {{#each controller}}
-      <li>{{name}}</li>
+
+    {{#each item in controller}}
+      {{#view App.ClickableView contentBinding="item" fabricIDBinding="activeFabricID"}}
+          <div id="fabric-panel-item" {{bindAttr class="item.isActiveFabric"}}>
+            <img {{bindAttr src="item.img"}}></img>
+            {{item.name}}
+          </div>
+      {{/view}}
     {{/each}}
-    </ul>
   </script>
 
-
   <script type="text/x-handlebars" data-template-name="preview">
+    <p>{{appName}}</p>
     <ul>
     {{#each item in model}}
-      <li>{{item}}</li>
+      <li>neckize: {{item.necksize}}</li>
+      <li>size: {{item.size}}</li>
+      <li>style: {{item.style}}</li>
+      <li>fabric (model): {{item.fabricID}}</li>
+      <li>fabric (controller): {{App.BowTie.fabricID}}</li>
     {{/each}}
     </ul>
-    <p>{{appName}}</p>
 
   </script>
 
   <script type="text/x-handlebars" data-template-name="buy">
-  <p>Buy</p>
-  </script>
+  <h2>{{appName}}</h2>
 
+  <form>
+  <div class="input string">
+    <label>First name</label>
+    {{view Ember.TextField valueBinding='firstName' name='first_name' viewName='firstNameField'}}
+  </div>
+  <div class="input string">
+    <label>Last name</label>
+    {{view Ember.TextField valueBinding='lastName' name='last_name' viewName='lastNameField'}}
+  </div>
+  <div class="input string">
+    <label>Email</label>
+    {{view Ember.TextField valueBinding='email' name='email' viewName='emailField'}}
+  </div>
+
+  <button {{action "submit"}}>Buy Now!</button>
+  </form>
+  </script>
 
 
   <script src="js/libs/jquery-1.9.1.js"></script>
@@ -128,6 +144,7 @@
   <script src="js/app.js"></script>
   <script src="js/router.js"></script>
   <script src="js/model.js"></script>
+  <script src="js/view.js"></script>
 
 </body>
 </html>
