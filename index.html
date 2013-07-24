@@ -51,19 +51,18 @@
 
   <script type="text/x-handlebars" data-template-name="option">
     <h2 class="center">Options</h2>
-    {{#each item in model}}
     <ul>
       <li>
         <label>Neck Size
-        {{view Ember.TextField valueBinding="item.necksize"}}
+        {{view Ember.TextField valueBinding="necksize"}}
         </label>
       </li>
 
     <li>
       <label>{{App.BowSize.type}}
         {{view Ember.Select
-       contentBinding="App.BowTie.sizeOption"
-       valueBinding="item.size"
+       contentBinding="sizeOption"
+       valueBinding="size"
         }}
       </label>
     </li>
@@ -71,14 +70,12 @@
     <li>
       <label>{{App.BowStyle.type}}
         {{view Ember.Select
-       contentBinding="App.BowTie.styleOption"
-       valueBinding="item.style"
+       contentBinding="styleOption"
+       valueBinding="style"
         }}
       </label>
     </li>
-
     </ul>
-    {{/each}}
       
   </script>
 
@@ -104,15 +101,11 @@
   <script type="text/x-handlebars" data-template-name="preview">
     <p>{{appName}}</p>
     <ul>
-    {{#each item in model}}
-      <li>neckize: {{item.necksize}}</li>
-      <li>size: {{item.size}}</li>
-      <li>style: {{item.style}}</li>
-      <li>fabric (model): {{item.fabricID}}</li>
-      <li>fabric (controller): {{App.BowTie.fabricID}}</li>
-    {{/each}}
+      <li>neckize: {{necksize}}</li>
+      <li>size: {{size}}</li>
+      <li>style: {{style}}</li>
+      <li>fabricID: {{fabricID}}</li>
     </ul>
-
   </script>
 
   <script type="text/x-handlebars" data-template-name="buy">

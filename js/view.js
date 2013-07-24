@@ -1,5 +1,6 @@
 /* Views */
 
+/*
 App.HotnessView = Ember.View.extend({
   classNames: ['hotness-control'],
   templateName: 'hotness',
@@ -17,7 +18,7 @@ App.HotnessView = Ember.View.extend({
     alert(this.get('hotness'));
   },
 });
-
+*/
 
 
 App.ClickableView = Ember.View.extend({
@@ -38,13 +39,4 @@ App.ClickableView = Ember.View.extend({
     this.get('content').set('isActiveFabric', true)
     return true;
   },
-
-/*
-  update: function() {
-    alert(this.fabricID);
-    App.BowTie.set('fabricID', this.fabricID);
-    alert(App.BowTie.fabricID);
-  }.observes('fabricID')
-*/
-
 });

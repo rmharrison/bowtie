@@ -7,22 +7,33 @@ App.GLOBALS = Ember.Object.create({
   fabricPath: "assets/fabric/",
 });
 
-App.BowTie = DS.Model.extend({
-  id: DS.attr('integer'),
-  name: DS.attr('string'),
-  user: DS.attr('string'),
-  necksize: DS.attr('number'),
-  style: DS.attr('string'),
-  size: DS.attr('string'),
-  fabricID: DS.attr('integer'),
-//  activeFabric: DS.belongsTo('App.Fabric'),
-  //activeOption: DS.belongsTo('App.Options'),
+// BowTie Object
+App.BowTie = Ember.Object.create({
+    id: 1,
+    name: 'Inviticus',
+    img: '/IMAGE/bowtie.png',
+    fabricID: false,
+    necksize: 15.5,
+    style: "Classic",
+    styleOption: ["Batwing", "Classic", "Diamond Point"],
+    size: "Standard",
+    sizeOption: ["Jumbo", "Standard", "Slim"],
+});
+
+// Contact information for Buying
+// ObjectController, will eventually save to database
+App.Contact = Ember.Object.create({
+  firstName: 'Jane',
+  lastName: 'Doe',
+  email: 'jane.doe@gmail.com',
 });
 
 App.Fabric = DS.Model.extend({
   id: DS.attr('integer'),
   name: DS.attr('string'),
   imgName: DS.attr('string'),
+  //Only one fabric may be active at a time / set in view.
+  // Todo: Move logic to controller, or better yet model
   isActiveFabric: DS.attr('boolean'),
   img: function() {
     return App.GLOBALS.fabricPath + '' + this.get('imgName');
@@ -30,45 +41,8 @@ App.Fabric = DS.Model.extend({
   //swatchbook: DS.hasMany('App.Swatchbook'),
 });
 
-App.Options = DS.Model.extend({
-  id: DS.attr('integer'),
-  name: DS.attr('string'),
-  type: DS.attr('string'),
-  isSelected: DS.attr('boolean')
-});
-
-/* Options for selector */
-/*
-App.BowTie = Ember.Object.extend({
-    styleOption: ["Batwing", "Classic", "Diamond Point"];
-    style: "Classic",
-    sizeOption: ["Jumbo", "Standard", "Slim"];
-    size: "Standard",
-    fabricID: false;
-    id: 1,
-    necksize: 15.5,
-    name: 'Inviticus',
-    img: '/IMAGE/bowtie.png',
-});
-*/
-
-App.BowTie.styleOption = ["Batwing", "Classic", "Diamond Point"];
-App.BowTie.sizeOption = ["Jumbo", "Standard", "Slim"];
-App.BowTie.fabricID = false;
-
-App.BowTie.FIXTURES = [
- {
-   id: 1,
-   name: 'Inviticus',
-   user: 'Ryan',
-   necksize: 15.5,
-   style: 'Classic',
-   size: 'Standard',
-   fabricID: false,
- },
-];
-
 // Fixtures used to store data until long-term persistance (REST calls to Django) are implemented
+// These will eventually be loaded from database with Ajax calls
 App.Fabric.FIXTURES = [
  {
    id: 1,
@@ -103,6 +77,44 @@ App.Fabric.FIXTURES = [
 ];
 
 // Fixtures used to store data until long-term persistance (REST calls to Django) are implemented
+
+/*
+// Using only one BowTie with an object controller for the time being
+// May save bow ties to data base, but only one will be active in the application at a time
+App.BowTie = DS.Model.extend({
+  id: DS.attr('integer'),
+  name: DS.attr('string'),
+  user: DS.attr('string'),
+  necksize: DS.attr('number'),
+  style: DS.attr('string'),
+  size: DS.attr('string'),
+  fabricID: DS.attr('integer'),
+//  activeFabric: DS.belongsTo('App.Fabric'),
+  //activeOption: DS.belongsTo('App.Options'),
+});
+
+App.BowTie.FIXTURES = [
+ {
+   id: 1,
+   name: 'Inviticus',
+   user: 'Ryan',
+   necksize: 15.5,
+   style: 'Classic',
+   size: 'Standard',
+   fabricID: false,
+ },
+];
+*/
+
+/*
+//Options are set with BowTies, not independent.
+App.Options = DS.Model.extend({
+  id: DS.attr('integer'),
+  name: DS.attr('string'),
+  type: DS.attr('string'),
+  isSelected: DS.attr('boolean')
+});
+
 App.Options.FIXTURES = [
  {
    name: 'Jumbo',
@@ -135,3 +147,4 @@ App.Options.FIXTURES = [
    isSelected: false,
  },
 ];
+*/

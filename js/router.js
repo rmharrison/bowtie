@@ -24,7 +24,7 @@ App.DesignRoute = Ember.Route.extend({
     //For setting a particular bowtie as a model
     //controller.set('model', bowtie);
     this.controllerFor('DesignFabric').set('content', App.Fabric.find());
-    this.controllerFor('DesignBowTie').set('content', App.BowTie.find());
+    this.controllerFor('DesignBowTie').set('content', App.BowTie);
   },
   renderTemplate: function(controller, model) {
     //Render the application into the main/default outlet
@@ -34,12 +34,12 @@ App.DesignRoute = Ember.Route.extend({
     this.render('bowtie', {   // the template to render
       into: 'design',                // the template to render into
       outlet: 'bowtie',              // the name of the outlet in that template
-      controller:this.controllerFor('DesignBowTie', App.BowTie.find()), // the controller to use for the template
+      controller:this.controllerFor('DesignBowTie', App.BowTie), // the controller to use for the template
     });
     this.render('option', {   // the template to render
       into: 'design',                // the template to render into
       outlet: 'option',              // the name of the outlet in that template
-      controller:this.controllerFor('DesignBowTie', App.BowTie.find()), // the controller to use for the template
+      controller:this.controllerFor('DesignBowTie', App.BowTie), // the controller to use for the template
     });
     this.render('fabric', {   // the template to render
       into: 'design',                // the template to render into
@@ -66,7 +66,7 @@ App.DesignFabricRoute = Ember.Route.extend({
 
 App.PreviewRoute = Ember.Route.extend({
   model: function() {
-    return App.BowTie.find();
+    return App.BowTie;
   },
 });
 

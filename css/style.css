@@ -98,6 +98,7 @@ padding: 20px;
 }
 
 #fabric-panel-item {
+width: 75%;
 }
 
 #fabric-panel-item:hover {

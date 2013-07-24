@@ -18,12 +18,12 @@ App.DesignFabricController = Ember.ArrayController.extend({
   }.property('@each.fabricCount'),
 });
 
-App.DesignOptionController = Ember.Controller.extend({
-});
+//App.DesignOptionController = Ember.Controller.extend({
+//});
 
 
 //App.PreviewController = Ember.ObjectController.extend({
-App.PreviewController = Ember.Controller.extend({
+App.PreviewController = Ember.ObjectController.extend({
   appName: 'Preview area',
 });
 
@@ -34,8 +34,3 @@ App.BuyController = Ember.ObjectController.extend({
   }
 });
 
-App.Contact = Ember.Object.create({
-  firstName: 'Jane',
-  lastName: 'Doe',
-  email: 'jane.doe@gmail.com',
-});
