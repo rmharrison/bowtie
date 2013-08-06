@@ -13,7 +13,8 @@ App.BowTie = Ember.Object.create({
     name: 'Inviticus',
     img: '/IMAGE/bowtie.png',
     fabricID: false,
-    necksize: 15.5,
+    necksize: "15.5",
+    necksizeOption: ["14.0", "14.5", "15.0", "15.5", "16.0", "16.5", "17.0", "17.5", "18.0", "18.5", "19.0", "19.5", "20.0"],
     style: "Classic",
     styleOption: ["Batwing", "Classic", "Diamond Point"],
     size: "Standard",
@@ -29,7 +30,6 @@ App.Contact = Ember.Object.create({
 });
 
 App.Fabric = DS.Model.extend({
-  id: DS.attr('integer'),
   name: DS.attr('string'),
   imgName: DS.attr('string'),
   //Only one fabric may be active at a time / set in view.

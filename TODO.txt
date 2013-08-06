@@ -26,3 +26,9 @@ http://emberjs.com/guides/controllers/representing-multiple-models-with-arraycon
 Want to use seperate controllers for Fabric and Options. 
 Models are taken from routes, meaning I need two routes for fabric and options?
 
+24 July 2013...
+- Make canvas application to allow user to modify bow tie shape
+    Options for style/size will apply presets, that the user can then modify.
+- Use fabric option to change bow tie color
+- Display both the front and the back of the bow tie
+- Allow user to click the front/back. This will select where the fabric and options are applied. 

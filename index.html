@@ -54,7 +54,10 @@
     <ul>
       <li>
         <label>Neck Size
-        {{view Ember.TextField valueBinding="necksize"}}
+        {{view Ember.Select
+       contentBinding="necksizeOption"
+       valueBinding="necksize"
+        }}
         </label>
       </li>
 
@@ -81,7 +84,10 @@
 
   <script type="text/x-handlebars" data-template-name="bowtie">
     <h2 class="center">Bow Tie Design Area!</h2>
+    <div id="ThreeJS"></div>
+    <script src="js/three.bowtie.js"></script>
   </script>
+
 
   <script type="text/x-handlebars" data-template-name="fabric">
     <h2 class="center">Fabric</h2>
@@ -129,7 +135,6 @@
   </form>
   </script>
 
-
   <script src="js/libs/jquery-1.9.1.js"></script>
   <script src="js/libs/handlebars-1.0.0-rc.4.js"></script>
   <script src="js/libs/ember-1.0.0-rc.6.js"></script>
@@ -138,6 +143,8 @@
   <script src="js/router.js"></script>
   <script src="js/model.js"></script>
   <script src="js/view.js"></script>
+  <script src="js/libs/three.r59.js"></script>
+  <script src="js/libs/OrbitControls.js"></script>
 
 </body>
 </html>

@@ -75,6 +75,12 @@ float: bottom;
 width: 70%;
 }
 
+#ThreeJS
+{
+text-align:center;
+background: #fff;
+}
+
 .center
 {
 text-align:center;
